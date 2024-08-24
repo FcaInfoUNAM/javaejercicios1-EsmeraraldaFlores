@@ -39,9 +39,41 @@ public class Colecciones {
     }
 
     public HashMap<Integer, String>  obtenerHash(){
-        int length = cars.size() + bikes.length + bicicles.size();// obtener tamaño
-        int count =1;
-        //this.transport.forEach((key, value) -> System.out.println(key + " " + value)); //imprimir para pruebas
-        return this.transport;
+        HashSet<String> uniqueElements = new HashSet<>();
+
+        for (String car : cars) {
+            if (car != null && !car.isEmpty()) {
+                uniqueElements.add(car);
+            }
+        }
+
+        for (String bike : bikes) {
+            if (bike != null && !bike.isEmpty()) {
+                uniqueElements.add(bike);
+            }
+        }
+
+        for (String bicicle : bicicles) {
+            if (bicicle != null && !bicicle.isEmpty()) {
+                uniqueElements.add(bicicle);
+            }
+        }
+        
+        int count = 1;
+        for (String element : uniqueElements) {
+            transport.put(count++, element);
+        }
+
+        return transport;
+    }
+    public static void main(String[] args) {
+        Colecciones colecciones = new Colecciones();
+        colecciones.inicializar();
+        HashMap<Integer, String> resultado = colecciones.obtenerHash();
+
+        // Imprimir el resultado del HashMap
+        for (Integer key : resultado.keySet()) {
+            System.out.println(key + ": " + resultado.get(key));
+        }
     }
 }

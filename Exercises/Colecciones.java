@@ -9,7 +9,7 @@ public class Colecciones {
     ArrayList<String> cars ;
     String[] bikes;
     Set<String> bicicles;
-    HashMap<Integer, String> transport;
+    public HashMap<Integer, String> transport;
 
     public Colecciones(){
         this.cars = new ArrayList<String>();
@@ -66,7 +66,7 @@ public class Colecciones {
 
         return transport;
     }
-    public static void main(String[] args) {
+   /* / public static void main(String[] args) {
         Colecciones colecciones = new Colecciones();
         colecciones.inicializar();
         HashMap<Integer, String> resultado = colecciones.obtenerHash();
@@ -75,5 +75,5 @@ public class Colecciones {
         for (Integer key : resultado.keySet()) {
             System.out.println(key + ": " + resultado.get(key));
         }
-    }
+    }*/
 }

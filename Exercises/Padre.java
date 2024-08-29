@@ -3,16 +3,36 @@ package Exercises;
 public class Padre {
     String apellido;
 
-    // Constructor que acepta un String
     public Padre(String apellido) {
         this.apellido = apellido;
     }
 
-    public boolean test() {
-        Hijo hijo = new Hijo("Perez", "Juan");
-        
-        EspirituSanto es = new EspirituSanto("Perez", "Juan", "Lopez");
-        
-        return es.pruebaPaternidad();
+    public Boolean test() {
+        Hijo hijo = new Hijo("Juan", this.apellido);
+        EspirituSanto es = new EspirituSanto(hijo.nombre, this.apellido, "Lopez");
+        return es.pruebaParternidad();
+    }
+    
+}
+
+class Hijo extends Padre {
+    String nombre;
+
+    public Hijo(String nombre, String apellido) {
+        super(apellido);
+        this.nombre = nombre;
+    }
+}
+
+class EspirituSanto extends Hijo {
+    String apellidoReal;
+
+    public EspirituSanto(String nombre, String apellido, String apellidoReal) {
+        super(nombre, apellido);
+        this.apellidoReal = apellidoReal;
+    }
+
+    public Boolean pruebaParternidad() {
+        return this.apellido.equals(this.apellidoReal);
     }
 }
